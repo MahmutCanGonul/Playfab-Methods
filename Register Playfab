@@ -1,0 +1,17 @@
+ private void RegisterMethod()
+    {
+        PlayFabClientAPI.RegisterPlayFabUser(new RegisterPlayFabUserRequest
+        {
+            RequireBothUsernameAndEmail = true,
+            TitleId= "B0110",
+            Email = "demo@gmail.com",
+            Username = "MahmutAbi",
+            Password = "mahmut_abi_playfab",
+            DisplayName = "mahmutAbi"
+
+
+        },resultCallback=> { Debug.Log(resultCallback);},
+        errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+
+    }
