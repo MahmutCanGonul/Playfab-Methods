@@ -1,0 +1,20 @@
+private void GetUserPublisherData()
+    {
+        PlayFabClientAPI.GetUserPublisherData(new GetUserDataRequest
+        {
+            PlayFabId = "USER_PLAYFABID",
+            Keys = null
+
+        }, resultCallback => {
+
+            string[] getKeys = new string[resultCallback.Data.Keys.Count];
+            resultCallback.Data.Keys.CopyTo(getKeys, 0);
+            for (int i = 0; i < getKeys.Length; i++)
+            {
+                Debug.Log("Key: " + getKeys[i] + "/ Data: " + resultCallback.Data[getKeys[i]].Value);
+            }
+
+        },
+        errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
