@@ -1,0 +1,27 @@
+ private void LoginPlayFab()
+    {
+        PlayFabClientAPI.LoginWithPlayFab(new LoginWithPlayFabRequest
+        {
+            Username = "USERNAME",
+            Password="PASSWORD",
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+            {
+                GetUserData = true,
+                GetUserAccountInfo = true,
+                GetPlayerProfile = true,
+                GetTitleData = true,
+                GetCharacterInventories = true,
+                GetCharacterList = true,
+                GetPlayerStatistics = true,
+                GetUserInventory = true,
+                GetUserReadOnlyData = true,
+                GetUserVirtualCurrency = true
+
+            },
+            TitleId = "B0110"
+
+
+        },resultCallback=> { Debug.Log(resultCallback); },errorCallback=>     { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
+
