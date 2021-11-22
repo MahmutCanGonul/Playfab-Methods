@@ -1,0 +1,17 @@
+private void CreateGroup()
+    {
+        PlayFabClientAPI.CreateSharedGroup(new CreateSharedGroupRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext()
+            {
+              
+                 PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            SharedGroupId = "YOUR_CLAN_NAME"
+        }, resultCallback => { Debug.Log("Susccess! Your clan is created."); }, errorCallback => { Debug.Log(errorCallback.ErrorMessage);});
+
+    }
