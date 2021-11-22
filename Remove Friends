@@ -1,0 +1,18 @@
+ private void RemoveFriends()
+    {
+        PlayFabClientAPI.RemoveFriend(new RemoveFriendRequest
+        {
+
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            FriendPlayFabId = "YOUR_FRIEND_PLAYFABID"
+
+        },resultCallback=> { Debug.Log("Your friend is removed!"); },errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
