@@ -1,0 +1,19 @@
+private void AddSharedGroupmembers()
+    {
+        PlayFabClientAPI.AddSharedGroupMembers(new AddSharedGroupMembersRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            PlayFabIds = new List<string>() {"USER1_PLAYFABID", "USER2_PLAYFABID", "USER3_PLAYFABID","..."},
+            SharedGroupId= "YOUR_CLAN_NAME"
+
+        }, resultCallback => { Debug.Log("Success! Users added clan."); },
+        errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
