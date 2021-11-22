@@ -1,0 +1,12 @@
+public void SubmitScore(int playerScore)
+    {
+        PlayFabClientAPI.UpdatePlayerStatistics(new UpdatePlayerStatisticsRequest
+        {
+            Statistics = new List<StatisticUpdate> {
+            new StatisticUpdate {
+                StatisticName = "LEADERBOARD_NAME",
+                Value = playerScore
+            }
+        }
+        }, result => {   }, errorCallback => { });
+    }
