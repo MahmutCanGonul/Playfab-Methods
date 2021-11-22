@@ -1,0 +1,23 @@
+public static void UpdateAvatarUrlMethod(string userID,string token,string id,string type,
+ string clientses,string avatarURL)
+    {
+        PlayFabClientAPI.UpdateAvatarUrl(new UpdateAvatarUrlRequest()
+        {
+            ImageUrl = avatarURL,
+            AuthenticationContext = new PlayFabAuthenticationContext()
+            {
+                PlayFabId = userID,
+                EntityToken = token,
+                EntityId = id,
+                EntityType = type,
+                ClientSessionTicket = clientses
+            }
+
+        },
+
+        OnSuccess => { },
+        OnFailed => { },
+        customData: data,
+        extraHeaders: null);
+
+    }
