@@ -1,0 +1,19 @@
+public void PlayFabChangeUsernameMethod(string userID, string token, string id, string type,
+ string clientses ,string changeUsername)
+    {
+        PlayFabClientAPI.UpdateUserTitleDisplayName(new UpdateUserTitleDisplayNameRequest
+        {
+            AuthenticationContext= new PlayFabAuthenticationContext() 
+            {
+                PlayFabId = userID,
+                EntityToken = token,
+                EntityId = id,
+                EntityType = type,
+                ClientSessionTicket = clientses
+            },
+            DisplayName = changeUsername // User Update username
+
+        }, resultCallback => { username.text = resultCallback.DisplayName; },
+        errorCallback=> { Debug.Log(errorCallback.ErrorMessage);});
+
+    }
