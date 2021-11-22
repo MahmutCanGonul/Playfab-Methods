@@ -1,0 +1,28 @@
+ public void GetLeaderBoard()
+{
+  var count=0;
+  PlayFabClientAPI.GetLeaderboard(new GetLeaderboardRequest
+        {
+            StatisticName = "LEADERBOARD_NAME",
+            MaxResultsCount = 100,
+           ProfileConstraints = new PlayerProfileViewConstraints 
+          { 
+                ShowAvatarUrl = true, 
+                ShowDisplayName = true 
+          }
+        },resultCallback=>{
+
+           if(resultCallback.Leaderboard.Count > 0)
+           {
+
+                for(int i=0; i<resultCallback.Leaderboard.Count;i++)
+                {
+                     count++;
+                     Debug.log(count+".User Name: "+resultCallback.Leaderboard[i].DisplayName+" Score: " + resultCallback.Leaderboard[i].StatValue);
+                }        
+           }       
+
+         },
+        errorCallback=>{Debug.log(errorCallback.ErrorMessage);});
+
+}
