@@ -1,0 +1,28 @@
+public void UpdateUserPublisherData()
+   {
+
+     PlayFabClientAPI.UpdateUserData(new UpdateUserPublisherDataRequest()
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext()
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            Data = new Dictionary<string, string>() {
+            {"KEY_VALUE", "DATA_VALUE"}
+        },
+            Permission = UserDataPermission.Public
+        },
+        result => Debug.Log("Update user data request successful"),
+        error =>
+        {
+            Debug.Log("Got error updating  user data request:");
+            Debug.Log(error.GenerateErrorReport());
+        }, customData: data,
+            extraHeaders: null);
+
+
+   }  
