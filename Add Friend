@@ -1,0 +1,22 @@
+private void AddFriend()
+    {
+        PlayFabClientAPI.AddFriend(new AddFriendRequest
+        {
+
+            AuthenticationContext = new PlayFabAuthenticationContext()
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            FriendEmail = "YOUR_FRIEND_MAIL_ADDRESS",
+            FriendPlayFabId = "YOUR_FRIEND_PLAYFABID",
+            FriendTitleDisplayName = "YOUR_FRIEND_DISPLAYNAME",
+            FriendUsername = "YOUR_FRIEND_USERNAME"
+
+
+        },resultCallback=> { Debug.Log(resultCallback); },errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
