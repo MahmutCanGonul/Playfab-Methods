@@ -18,7 +18,7 @@
                 GetUserVirtualCurrency = true
 
             },
-            TitleId = "B0110"
+            TitleId = "YOUR_PLAYFAB_TITLEID"
 
 
         },resultCallback=> { Debug.Log(resultCallback); },errorCallback=>     { Debug.Log(errorCallback.ErrorMessage); });
