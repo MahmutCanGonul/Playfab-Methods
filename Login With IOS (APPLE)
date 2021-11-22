@@ -2,7 +2,7 @@
     {
         PlayFabClientAPI.LoginWithApple(new LoginWithAppleRequest
         {
-            TitleId= "B0110",
+            TitleId= "YOUR_PLAYFAB_TITLEID",
             CreateAccount=true,
             EncryptedRequest= "RSA_KEY",
             IdentityToken = "JSON WEB TOKEN",
