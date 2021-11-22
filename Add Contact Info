@@ -1,0 +1,14 @@
+ private void AddContactInfo(string email)
+        {
+            PlayFabClientAPI.AddOrUpdateContactEmailAsync(new AddOrUpdateContactEmailRequest
+            {
+               AuthenticationContext = new PlayFabAuthenticationContext 
+             {  
+               PlayFabId = playfabID, 
+              EntityToken = entityToken, 
+             ClientSessionTicket = clientSessionTicket 
+           },
+             EmailAddress = email
+            });
+
+        }
