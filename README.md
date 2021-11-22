@@ -12,6 +12,9 @@ Download this link and import the unity.
 
 https://aka.ms/PlayFabUnityEdEx
 
+After that follow this link step by step: 
+
+https://docs.microsoft.com/en-us/gaming/playfab/sdks/unity3d/installing-unity3d-sdk
 
 
 💣XAMARIN:
