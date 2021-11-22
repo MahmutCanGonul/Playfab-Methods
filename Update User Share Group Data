@@ -1,0 +1,20 @@
+private void UpdateUserShareData(int coin,BlockchainCoding.Blockchain blockChain)
+    {
+        
+        PlayFabClientAPI.UpdateSharedGroupData(new UpdateSharedGroupDataRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext()
+            {
+              
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            Data = new Dictionary<string, string>() { { "KEY_NAME","VALUE" } },
+            Permission = UserDataPermission.Public,
+            SharedGroupId = "YOUR_CLAN_NAME"
+        },resultCallback=> { Debug.Log("Success! Your Clan updated."); },errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
