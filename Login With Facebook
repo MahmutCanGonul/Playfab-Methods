@@ -1,0 +1,26 @@
+private void LoginFacebookMethod()
+    {
+        PlayFabClientAPI.LoginWithFacebook(new LoginWithFacebookRequest
+        {
+            AccessToken = "FACEBOOK_TOKEN",
+            CreateAccount = true,
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+            {
+                GetUserData = true,
+                GetUserAccountInfo = true,
+                GetPlayerProfile = true,
+                GetTitleData = true,
+                GetCharacterInventories = true,
+                GetCharacterList = true,
+                GetPlayerStatistics = true,
+                GetUserInventory = true,
+                GetUserReadOnlyData = true,
+                GetUserVirtualCurrency = true
+            },
+            TitleId = "B0110",
+            EncryptedRequest = "RSA_KEY",
+           PlayerSecret="PLAYFAB_PLAYER_SECRET"
+        },resultCallback=>{ Debug.Log(resultCallback); },
+        errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
