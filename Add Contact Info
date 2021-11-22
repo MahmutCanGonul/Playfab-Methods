@@ -4,9 +4,9 @@
             {
                AuthenticationContext = new PlayFabAuthenticationContext 
              {  
-               PlayFabId = playfabID, 
-              EntityToken = entityToken, 
-             ClientSessionTicket = clientSessionTicket 
+               PlayFabId = "USER_PLAYFABID", 
+              EntityToken = "USER_PLAYFAB_TOKEN", 
+             ClientSessionTicket = "USER_PLAYFAB_CLIENTTICKET" 
            },
              EmailAddress = email
             });
