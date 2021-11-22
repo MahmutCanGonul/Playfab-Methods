@@ -1,0 +1,19 @@
+private void ReportPlayer()
+    {
+        PlayFabClientAPI.ReportPlayer(new ReportPlayerClientRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            Comment="YOUR_COMMENT_WHY_YOU_ARE_REPORT_THE_PLAYER",
+            ReporteeId="REPORTED_PLAYER_PLAYFABID"
+
+        }, resultCallback => { Debug.Log("Numbers of reported this player: "+resultCallback.SubmissionsRemaining); },
+        errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
