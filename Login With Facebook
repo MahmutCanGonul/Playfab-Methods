@@ -17,7 +17,7 @@ private void LoginFacebookMethod()
                 GetUserReadOnlyData = true,
                 GetUserVirtualCurrency = true
             },
-            TitleId = "B0110",
+            TitleId = "YOUR_PLAYFAB_TITLEID",
             EncryptedRequest = "RSA_KEY",
            PlayerSecret="PLAYFAB_PLAYER_SECRET"
         },resultCallback=>{ Debug.Log(resultCallback); },
