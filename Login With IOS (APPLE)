@@ -1,0 +1,28 @@
+ private void LoginAppleMethod()
+    {
+        PlayFabClientAPI.LoginWithApple(new LoginWithAppleRequest
+        {
+            TitleId= "B0110",
+            CreateAccount=true,
+            EncryptedRequest= "RSA_KEY",
+            IdentityToken = "JSON WEB TOKEN",
+            InfoRequestParameters = new GetPlayerCombinedInfoRequestParams
+            {
+                GetUserData = true,
+                GetUserAccountInfo = true,
+                GetPlayerProfile = true,
+                GetTitleData = true,
+                GetCharacterInventories = true,
+                GetCharacterList = true,
+                GetPlayerStatistics = true,
+                GetUserInventory = true,
+                GetUserReadOnlyData = true,
+                GetUserVirtualCurrency = true
+            },
+      PlayerSecret="PLAYFAB_PLAYER_SECRET"
+
+
+        },resultCallback => { Debug.Log(resultCallback); },
+        errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
