@@ -1,0 +1,32 @@
+private void GetUserShareDataMembers()
+    {
+        
+        PlayFabClientAPI.GetSharedGroupData(new GetSharedGroupDataRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext()
+            {
+             
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            GetMembers = true,
+            Keys = null,
+            SharedGroupId = "YOUR_CLAN_NAME"
+        }, resultCallback => {
+        
+                    
+             if(resultCallback.Members.Count > 0)
+            {
+                for(int i=0; i < resultCallback.Members.Count; i++)
+                {
+                    Debug.Log((i+1)+"User PlayfabID: "+resultCallback.Members[i]);
+                }
+            }
+
+
+        }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
