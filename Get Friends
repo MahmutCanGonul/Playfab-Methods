@@ -1,0 +1,35 @@
+private void GetFriends()
+    {
+        var count = 0;
+        PlayFabClientAPI.GetFriendsList(new GetFriendsListRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            ProfileConstraints = new PlayerProfileViewConstraints { ShowAvatarUrl = true, ShowDisplayName = true, ShowLastLogin = true, ShowStatistics = true },
+            IncludeFacebookFriends = true,
+            IncludeSteamFriends = true
+
+        }, resultCallback =>
+        {
+
+            if (resultCallback.Friends.Count > 0)
+            {
+                for (int i = 0; i < resultCallback.Friends.Count; i++)
+                {
+                    count++;
+                    Debug.Log(count+".Friend Name: "+resultCallback.Friends[i].Username+" Profile Picture: " + resultCallback.Friends[i].Profile.AvatarUrl);
+                    Debug.Log(count+".Friend Last Login Time: "+resultCallback.Friends[i].Profile.LastLogin);
+                }
+            }
+
+        },
+
+        errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
