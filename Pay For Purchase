@@ -1,0 +1,29 @@
+private void PayForPurchase()
+    {
+        PlayFabClientAPI.PayForPurchase(new PayForPurchaseRequest
+        {
+
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            Currency="CURRENCY_CODE",
+            OrderId="ORDER_ID",
+            ProviderName="PAYMENT_PROVIDE_NAME",
+            ProviderTransactionId = "PAYMENT_TRANSACTION_ID" // It is required Meta Payments
+         
+
+        },resultCallback=> 
+        {
+        
+            Debug.Log("Purchase Confirmation Page URL: "+resultCallback.PurchaseConfirmationPageURL);
+            Debug.Log("Purchase Success!");
+        
+        
+        },errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
