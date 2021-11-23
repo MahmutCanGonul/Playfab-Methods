@@ -1,0 +1,15 @@
+private void GetCharacterInventory()
+    {
+        PlayFabClientAPI.GetCharacterInventory(new GetCharacterInventoryRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            CharacterId = "USER_CHARACTER_ID"
+        },resultCallback=> { },errorCallback=> { });
+    }
