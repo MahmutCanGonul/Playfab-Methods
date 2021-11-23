@@ -1,0 +1,33 @@
+private void GetGameServersRegions()
+    {
+        var regionsCount = 0;
+        PlayFabClientAPI.GetGameServerRegions(new GameServerRegionsRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            TitleId = "PLAYFAB_TITLEID"
+
+
+        },resultCallback=> 
+        {
+                 
+            for(int i=0; i < resultCallback.Regions.Count; i++)
+            {
+                regionsCount++;
+                Debug.Log(regionsCount+".Region is: " + resultCallback.Regions[i].Name);
+                Debug.Log(regionsCount + ".Region is Avaliable: " + resultCallback.Regions[i].Available);
+                Debug.Log(regionsCount + ".Region is Ping URL: " + resultCallback.Regions[i].PingUrl);
+                Debug.Log(regionsCount + ".Region uniq identifier for region is: " + resultCallback.Regions[i].Region);
+
+
+            }
+
+        },errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
