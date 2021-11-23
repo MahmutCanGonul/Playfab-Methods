@@ -4,6 +4,11 @@ In this repository has Playfab Methods with integration C#
 
 ![image](https://user-images.githubusercontent.com/75094927/142860624-1422581a-ada9-445e-aef4-120140b7114a.png)
 
+🎈What is Playfab: 
+  
+ PlayFab is a complete backend platform for live games with managed game services, real-time analytics, and LiveOps. Boost your revenue and increase player engagement while cutting costs. This topic provides a high-level overview of the PlayFab features.
+
+
 🛸Create Playfab account and follow step-by-step this link:
 
 https://docs.microsoft.com/en-us/gaming/playfab/gamemanager/quickstart
