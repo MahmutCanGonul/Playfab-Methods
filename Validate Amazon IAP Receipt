@@ -1,0 +1,20 @@
+private void ValidateAmazonIAPReceipt()
+    {
+        PlayFabClientAPI.ValidateAmazonIAPReceipt(new ValidateAmazonReceiptRequest
+        {
+
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            UserId="AMAZON_USER_ID",
+            CurrencyCode="CURRENCY_CODE",
+            PurchasePrice=Random.Range(1,20), // Giving a price 
+            ReceiptId= "RETURNED_AMAZON_APP_STORE_IN_PURCHASE_API"
+        },resultCallback=> { Debug.Log(resultCallback); },errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
