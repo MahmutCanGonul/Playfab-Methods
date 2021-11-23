@@ -1,0 +1,33 @@
+private void GetFriendLeaderboard()
+    {
+        PlayFabClientAPI.GetFriendLeaderboard(new GetFriendLeaderboardRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            IncludeFacebookFriends = true,
+            IncludeSteamFriends = true,
+            StatisticName = "YOUR_FRIEND_LEADERBOARD_NAME",
+            MaxResultsCount = 100,
+            ProfileConstraints = new PlayerProfileViewConstraints { ShowAvatarUrl = true, ShowDisplayName = true, ShowStatistics = true }
+
+        }, resultCallback =>
+         {
+
+             for (int i = 0; i < resultCallback.Leaderboard.Count; i++)
+             {
+                 Debug.Log((i+1)+".User Name: "+resultCallback.Leaderboard[i].DisplayName);
+                 Debug.Log((i + 1) + ".User Data: " + resultCallback.Leaderboard[i].StatValue);
+                 Debug.Log((i + 1) + ".User Picture URL: " + resultCallback.Leaderboard[i].Profile.AvatarUrl);
+
+             }
+             Debug.Log("Next Reset of Leaderboard is: "+resultCallback.NextReset);
+
+         }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
