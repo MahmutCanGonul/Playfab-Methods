@@ -1,0 +1,28 @@
+private void GetAllUserCharacters()
+    {
+        var count = 0;
+        PlayFabClientAPI.GetAllUsersCharacters(new ListUsersCharactersRequest
+        {
+
+            PlayFabId = "USER_PLAYFABID"
+
+        }, resultCallback =>
+        {
+
+
+            if (resultCallback.Characters.Count > 0)
+            {
+                for(int i=0; i < resultCallback.Characters.Count; i++)
+                {
+                    count++;
+                    Debug.Log(count+".User Character ID: "+resultCallback.Characters[i].CharacterId);
+                    Debug.Log(count + ".User Character Name: " + resultCallback.Characters[i].CharacterName);
+                    Debug.Log(count + ".User Character Type: " + resultCallback.Characters[i].CharacterType);
+                }
+
+            }
+
+
+        }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
