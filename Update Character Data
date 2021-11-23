@@ -1,0 +1,19 @@
+private void UpdateCharacterData()
+    {
+        PlayFabClientAPI.UpdateCharacterData(new UpdateCharacterDataRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            CharacterId = "USER_CHARACTER_ID",
+            Data = new Dictionary<string, string> { {"DAMAGE","120" }, {"HEALSKILL","70"},{"ARMOR","100" } },
+            Permission= UserDataPermission.Public
+
+        },resultCallback=> { },errorCallback=> { });
+
+    }
