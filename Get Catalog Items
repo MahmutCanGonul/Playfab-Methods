@@ -1,0 +1,38 @@
+private void GetCatalogItems()
+    {
+        var count = 0;
+        PlayFabClientAPI.GetCatalogItems(new GetCatalogItemsRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            CatalogVersion = "PLAYFAB_CATALOG_VERSION"
+
+
+        }, resultCallback =>
+         {
+
+             if (resultCallback.Catalog.Count > 0)
+             {
+                 for(int i=0; i < resultCallback.Catalog.Count; i++)
+                 {
+                     uint[] getCurrecyValues = new uint[resultCallback.Catalog[i].VirtualCurrencyPrices.Values.Count];
+                     resultCallback.Catalog[i].VirtualCurrencyPrices.Values.CopyTo(getCurrecyValues, 0);
+                     count++;
+                     Debug.Log(count+"Item Name: "+resultCallback.Catalog[i].DisplayName);
+                     Debug.Log(count + "Item Image: " + resultCallback.Catalog[i].ItemImageUrl);
+                     Debug.Log(count + "Item ID: " + resultCallback.Catalog[i].ItemId);
+                     Debug.Log(count + "Item Price: " + getCurrecyValues[0]);
+
+                 }
+             }
+
+
+         }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
