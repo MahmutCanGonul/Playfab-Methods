@@ -31,5 +31,5 @@ https://docs.microsoft.com/en-us/gaming/playfab/sdks/unity3d/installing-unity3d-
 
 
 
-
+‼️NOTE: Parts you need to change is  giving the string format and has upper case ‼️
 
