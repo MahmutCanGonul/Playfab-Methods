@@ -1,0 +1,21 @@
+private void GetPlayerProfile()
+    {
+        PlayFabClientAPI.GetPlayerProfile(new GetPlayerProfileRequest
+        {
+
+            PlayFabId = "USER_PLAYFABID",
+            ProfileConstraints = new PlayerProfileViewConstraints { ShowAvatarUrl = true, ShowDisplayName = true, ShowLastLogin = true, ShowStatistics = true }
+        },resultCallback => 
+        {
+
+
+            Debug.Log("Player Username: "+resultCallback.PlayerProfile.DisplayName);
+            Debug.Log("Player Avatar Picture URL: " + resultCallback.PlayerProfile.AvatarUrl);
+            Debug.Log("Player Last Login: " + resultCallback.PlayerProfile.LastLogin);
+           
+
+
+
+        }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
