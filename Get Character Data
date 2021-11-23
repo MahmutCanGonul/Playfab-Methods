@@ -1,0 +1,26 @@
+private void GetCharacterData()
+    {
+        PlayFabClientAPI.GetCharacterData(new GetCharacterDataRequest
+        {
+
+            PlayFabId = "USER_PLAYFABID",
+            CharacterId = "USER_CHARACTER_ID",
+            Keys = null
+
+
+        }, resultCallback =>
+        {
+            string[] getKeys = new string[resultCallback.Data.Keys.Count];
+            resultCallback.Data.Keys.CopyTo(getKeys, 0); // You must write 0 for get the all user keys
+            if (getKeys.Length > 0)
+            {
+                 for(int i=0; i < getKeys.Length; i++)
+                {
+                    Debug.Log(getKeys[i]+": "+ resultCallback.Data[getKeys[i]].Value);
+                }
+
+            }
+
+        }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
