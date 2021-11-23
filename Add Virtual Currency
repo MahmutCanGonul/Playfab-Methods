@@ -1,0 +1,16 @@
+private void AddVirtualCurrency(int amount){
+
+PlayFabClientAPI.AddUserVirtualCurrency(new AddUserVirtualCurrencyRequest
+        {
+
+            AuthenticationContext = new PlayFabAuthenticationContext() { PlayFabId = "USER_PLAYFABID", ClientSessionTicket = "USER_CLIENTSESSION_TICKET" },
+            VirtualCurrency = "VIRTUAL CURRECY CODE",
+            Amount = amount,
+
+
+
+        }, resultCallback => { Debug.Log(resultCallback.Balance);},
+        errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+        
+        
+}
