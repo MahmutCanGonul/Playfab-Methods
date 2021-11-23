@@ -1,0 +1,19 @@
+private void OpenTrade()
+    {
+        PlayFabClientAPI.OpenTrade(new OpenTradeRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            AllowedPlayerIds = new List<string> { "USER_1_PLAYFABID", "USER_2_PLAYFABID", "USER_3_PLAYFABID", "..." }, // This part is giving example 
+            OfferedInventoryInstanceIds = new List<string> { "ITEM_1_ID", "ITEM_2_ID", "ITEM_3_ID", "..." }, // Initial on the market products
+            RequestedCatalogItemIds = new List<string> {"ITEM_1_ID","ITEM_2_ID","ITEM_3_ID","..." } // Requested porducts from the users
+           
+        },resultCallback=> { Debug.Log("Trade open at: "+resultCallback.Trade.OpenedAt); },errorCallback=> { Debug.Log(errorCallback.ErrorMessage);});
+
+    }
