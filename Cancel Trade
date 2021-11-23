@@ -1,0 +1,17 @@
+private void CancelTrade()
+    {
+        PlayFabClientAPI.CancelTrade(new CancelTradeRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            TradeId= "TRADE_ID"
+
+        }, resultCallback => { Debug.Log("Trade rejected"); }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
