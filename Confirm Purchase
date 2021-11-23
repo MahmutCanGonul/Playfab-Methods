@@ -1,0 +1,33 @@
+ private void ConfirmPurchase()
+    {
+        PlayFabClientAPI.ConfirmPurchase(new ConfirmPurchaseRequest
+        {
+
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            OrderId = "USER_ORDERID"
+
+        }, resultCallback =>
+         {
+
+             for (int i = 0; i < resultCallback.Items.Count; i++)
+             {
+                 Debug.Log((i+1)+".Buying Item Name: " + resultCallback.Items[i].DisplayName);
+                 Debug.Log((i+1)+".Buying Item Date: " + resultCallback.Items[i].PurchaseDate);
+                 Debug.Log((i+1)+".Buying Item Price: " + resultCallback.Items[i].UnitPrice);
+                 Debug.Log((i+1)+ ".Buying Item Price Currency: " + resultCallback.Items[i].UnitCurrency);
+                 Debug.Log((i+1)+ ".Buying Item Expiration Time: " + resultCallback.Items[i].Expiration);
+
+
+             }
+             Debug.Log("Order ID: "+resultCallback.OrderId);
+
+         }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
