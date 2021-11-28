@@ -1,0 +1,17 @@
+private void RemoveSharedGroupMembers()
+    {
+        PlayFabClientAPI.RemoveSharedGroupMembers(new RemoveSharedGroupMembersRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            PlayFabIds = new List<string>() { "USERID1", "USERID2", "USERID3","..." },
+            SharedGroupId = "YOUR_CLAN_NAME"
+        },resultCallback=> { Debug.Log("Users or user remove from the clan."); },errorCallback=> { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
