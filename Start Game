@@ -1,0 +1,29 @@
+private void StartGame()
+    {
+        PlayFabClientAPI.StartGame(new StartGameRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            CharacterId = "USER_CHAR_ID",
+            GameMode = "GAME_MODE",
+            Region = Region.EUWest,
+            StatisticName = "GAME_NAME"
+        }, resultCallback => { 
+            
+            Debug.Log("Expire Time: "+resultCallback.Expires);
+            Debug.Log("Lobby ID: " + resultCallback.LobbyID);
+            Debug.Log("Server Password for users log in: " + resultCallback.Password);
+            Debug.Log("Server IPV4 Address: " + resultCallback.ServerIPV4Address);
+            Debug.Log("Server IPV6 Address: " + resultCallback.ServerIPV6Address);
+            Debug.Log("Server Port: " + resultCallback.ServerPort);
+            Debug.Log("Server Public DNS Name: " + resultCallback.ServerPublicDNSName);
+
+
+
+        }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
