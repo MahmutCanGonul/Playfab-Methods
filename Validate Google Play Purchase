@@ -1,0 +1,17 @@
+PlayFabClientAPI.ValidateGooglePlayPurchase(new ValidateGooglePlayPurchaseRequest
+        {
+            AuthenticationContext = new PlayFabAuthenticationContext
+            {
+                PlayFabId = "USER_PLAYFABID",
+                EntityToken = "USER_TOKEN",
+                EntityId = "USER_ENTITYID",
+                EntityType = "USER_ENTITYTYPE",
+                ClientSessionTicket = "USERCLIENTSESSION"
+            },
+            PurchasePrice=150,
+            CurrencyCode="USD",
+            ReceiptJson= "GOOGLE PLAY IAB API",
+            Signature = "GOOGLE PLAY IAB API SIGNATURE"
+        }, resultCallback => { Debug.Log("Payment success!"); }, errorCallback => { Debug.Log(errorCallback.ErrorMessage); });
+
+    }
